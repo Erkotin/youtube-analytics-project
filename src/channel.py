@@ -53,3 +53,35 @@ class Channel:
 
         with open(file_name, 'w') as file:
             json.dump(data, file, indent=4)
+
+    def __str__(self) -> str:
+        """String representation of the channel."""
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other) -> int:
+        """Addition based on the number of subscribers."""
+        return self.subscriber_count + other.subscriber_count
+
+    def __sub__(self, other) -> int:
+        """Subtraction based on the number of subscribers."""
+        return self.subscriber_count - other.subscriber_count
+
+    def __gt__(self, other) -> bool:
+        """Greater than comparison based on the number of subscribers."""
+        return self.subscriber_count > other.subscriber_count
+
+    def __ge__(self, other) -> bool:
+        """Greater than or equal comparison based on the number of subscribers."""
+        return self.subscriber_count >= other.subscriber_count
+
+    def __lt__(self, other) -> bool:
+        """Less than comparison based on the number of subscribers."""
+        return self.subscriber_count < other.subscriber_count
+
+    def __le__(self, other) -> bool:
+        """Less than or equal comparison based on the number of subscribers."""
+        return self.subscriber_count <= other.subscriber_count
+
+    def __eq__(self, other) -> bool:
+        """Equality comparison based on the number of subscribers."""
+        return self.subscriber_count == other.subscriber_count
